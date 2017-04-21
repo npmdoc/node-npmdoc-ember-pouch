@@ -1,0 +1,327 @@
+<html><head></head><body><div class="apidocDiv">
+<style>
+/*csslint
+*/
+.apidocDiv {
+    background: #fff;
+    font-family: Arial, Helvetica, sans-serif;
+}
+.apidocDiv a[href] {
+    color: #33f;
+    font-weight: bold;
+    text-decoration: none;
+}
+.apidocDiv a[href]:hover {
+    text-decoration: underline;
+}
+.apidocCodeCommentSpan {
+    background: #bbf;
+    color: #000;
+    display: block;
+}
+.apidocCodeKeywordSpan {
+    color: #d00;
+    font-weight: bold;
+}
+.apidocCodePre {
+    background: #eef;
+    border: 1px solid;
+    color: #777;
+    padding: 5px;
+    white-space: pre-wrap;
+}
+.apidocFooterDiv {
+    margin-top: 20px;
+    text-align: center;
+}
+.apidocModuleLi {
+    margin-top: 10px;
+}
+.apidocSectionDiv {
+    border-top: 1px solid;
+    margin-top: 20px;
+}
+.apidocSignatureSpan {
+    color: #777;
+    font-weight: bold;
+}
+</style>
+<h1>api documentation for
+    <a>ember-pouch (v4.2.4)</a>
+</h1>
+<h4>PouchDB adapter for Ember Data</h4>
+<div class="apidocSectionDiv"><a href="#apidoc.tableOfContents" id="apidoc.tableOfContents"><h1>table of contents</h1></a><ol>
+
+    <li class="apidocModuleLi"><a href="#apidoc.module.ember-pouch">module ember-pouch</a><ol>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.ember-pouch.included">
+            function <span class="apidocSignatureSpan">ember-pouch.</span>included
+            <span class="apidocSignatureSpan">(app)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.ember-pouch.init">
+            function <span class="apidocSignatureSpan">ember-pouch.</span>init
+            <span class="apidocSignatureSpan">()</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.ember-pouch.treeForVendor">
+            function <span class="apidocSignatureSpan">ember-pouch.</span>treeForVendor
+            <span class="apidocSignatureSpan">()</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <span class="apidocSignatureSpan">object <span class="apidocSignatureSpan">ember-pouch.</span>index</span>
+
+        </li>
+
+        <li>
+
+            <span class="apidocSignatureSpan">string <span class="apidocSignatureSpan">ember-pouch.</span>name</span>
+
+        </li>
+
+    </ol></li>
+
+    <li class="apidocModuleLi"><a href="#apidoc.module.ember-pouch.index">module ember-pouch.index</a><ol>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.ember-pouch.index.included">
+            function <span class="apidocSignatureSpan">ember-pouch.index.</span>included
+            <span class="apidocSignatureSpan">(app)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.ember-pouch.index.init">
+            function <span class="apidocSignatureSpan">ember-pouch.index.</span>init
+            <span class="apidocSignatureSpan">()</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.ember-pouch.index.treeForVendor">
+            function <span class="apidocSignatureSpan">ember-pouch.index.</span>treeForVendor
+            <span class="apidocSignatureSpan">()</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <span class="apidocSignatureSpan">string <span class="apidocSignatureSpan">ember-pouch.index.</span>name</span>
+
+        </li>
+
+    </ol></li>
+
+</ol></div>
+
+<div class="apidocSectionDiv">
+<h1><a href="#apidoc.module.ember-pouch" id="apidoc.module.ember-pouch">module ember-pouch</a></h1>
+
+
+    <h2>
+        <a href="#apidoc.element.ember-pouch.included" id="apidoc.element.ember-pouch.included">
+        function <span class="apidocSignatureSpan">ember-pouch.</span>included
+        <span class="apidocSignatureSpan">(app)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">included(app) {
+  app.import('vendor/pouchdb/pouchdb.js');
+  app.import('vendor/pouchdb/pouchdb.relational-pouch.js');
+  app.import('vendor/pouchdb/pouchdb.find.js');
+  app.import('vendor/pouchdb/shims.js', {
+    exports: { 'pouchdb': [ 'default' ]}
+  });
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.ember-pouch.init" id="apidoc.element.ember-pouch.init">
+        function <span class="apidocSignatureSpan">ember-pouch.</span>init
+        <span class="apidocSignatureSpan">()</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">init = function () {
+  this._super.init &amp;&amp; this._super.init.apply(this, arguments);
+
+  var bowerDeps = this.project.bowerDependencies();
+
+  if (bowerDeps['pouchdb']) {this.ui.writeWarnLine('Please remove `pouchdb` from `bower.json`. As of ember-pouch 4.2.0, only the
+ NPM package is needed.');}
+  if (bowerDeps['relational-pouch']) {this.ui.writeWarnLine('Please remove `relational-pouch` from `bower.json`. As of ember-pouch
+ 4.2.0, only the NPM package is needed.');}
+  if (bowerDeps['pouchdb-find']) {this.ui.writeWarnLine('Please remove `pouchdb-find` from `bower.json`. As of ember-pouch 4.2.0
+, only the NPM package is needed.');}
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.ember-pouch.treeForVendor" id="apidoc.element.ember-pouch.treeForVendor">
+        function <span class="apidocSignatureSpan">ember-pouch.</span>treeForVendor
+        <span class="apidocSignatureSpan">()</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">treeForVendor = function () {
+  var pouchdb = stew.find(path.join(path.dirname(require.resolve('pouchdb')), '..', 'dist'), {
+    destDir: 'pouchdb',
+    files: ['pouchdb.js']
+  });
+
+  var relationalPouch = stew.find(path.join(path.dirname(require.resolve('relational-pouch')), '..', 'dist'), {
+    destDir: 'pouchdb',
+    files: ['pouchdb.relational-pouch.js']
+  });
+
+  var pouchdbFind = stew.find(path.join(path.dirname(require.resolve('pouchdb-find')), '..', 'dist'), {
+    destDir: 'pouchdb',
+    files: ['pouchdb.find.js']
+  });
+
+  var shims = stew.find(__dirname + '/vendor/pouchdb', {
+    destDir: 'pouchdb',
+    files: ['shims.js']
+  });
+
+  return stew.find([
+    pouchdb,
+    relationalPouch,
+    pouchdbFind,
+    shims
+  ]);
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+
+
+
+</div>
+
+<div class="apidocSectionDiv">
+<h1><a href="#apidoc.module.ember-pouch.index" id="apidoc.module.ember-pouch.index">module ember-pouch.index</a></h1>
+
+
+    <h2>
+        <a href="#apidoc.element.ember-pouch.index.included" id="apidoc.element.ember-pouch.index.included">
+        function <span class="apidocSignatureSpan">ember-pouch.index.</span>included
+        <span class="apidocSignatureSpan">(app)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">included(app) {
+  app.import('vendor/pouchdb/pouchdb.js');
+  app.import('vendor/pouchdb/pouchdb.relational-pouch.js');
+  app.import('vendor/pouchdb/pouchdb.find.js');
+  app.import('vendor/pouchdb/shims.js', {
+    exports: { 'pouchdb': [ 'default' ]}
+  });
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.ember-pouch.index.init" id="apidoc.element.ember-pouch.index.init">
+        function <span class="apidocSignatureSpan">ember-pouch.index.</span>init
+        <span class="apidocSignatureSpan">()</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">init = function () {
+  this._super.init &amp;&amp; this._super.init.apply(this, arguments);
+
+  var bowerDeps = this.project.bowerDependencies();
+
+  if (bowerDeps['pouchdb']) {this.ui.writeWarnLine('Please remove `pouchdb` from `bower.json`. As of ember-pouch 4.2.0, only the
+ NPM package is needed.');}
+  if (bowerDeps['relational-pouch']) {this.ui.writeWarnLine('Please remove `relational-pouch` from `bower.json`. As of ember-pouch
+ 4.2.0, only the NPM package is needed.');}
+  if (bowerDeps['pouchdb-find']) {this.ui.writeWarnLine('Please remove `pouchdb-find` from `bower.json`. As of ember-pouch 4.2.0
+, only the NPM package is needed.');}
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.ember-pouch.index.treeForVendor" id="apidoc.element.ember-pouch.index.treeForVendor">
+        function <span class="apidocSignatureSpan">ember-pouch.index.</span>treeForVendor
+        <span class="apidocSignatureSpan">()</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">treeForVendor = function () {
+  var pouchdb = stew.find(path.join(path.dirname(require.resolve('pouchdb')), '..', 'dist'), {
+    destDir: 'pouchdb',
+    files: ['pouchdb.js']
+  });
+
+  var relationalPouch = stew.find(path.join(path.dirname(require.resolve('relational-pouch')), '..', 'dist'), {
+    destDir: 'pouchdb',
+    files: ['pouchdb.relational-pouch.js']
+  });
+
+  var pouchdbFind = stew.find(path.join(path.dirname(require.resolve('pouchdb-find')), '..', 'dist'), {
+    destDir: 'pouchdb',
+    files: ['pouchdb.find.js']
+  });
+
+  var shims = stew.find(__dirname + '/vendor/pouchdb', {
+    destDir: 'pouchdb',
+    files: ['shims.js']
+  });
+
+  return stew.find([
+    pouchdb,
+    relationalPouch,
+    pouchdbFind,
+    shims
+  ]);
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+
+</div>
+
+<div class="apidocFooterDiv">
+    [ this document was created with
+    <a href="https://github.com/kaizhu256/node-utility2" target="_blank">utility2</a>
+    ]
+</div>
+</div>
+</body></html>
